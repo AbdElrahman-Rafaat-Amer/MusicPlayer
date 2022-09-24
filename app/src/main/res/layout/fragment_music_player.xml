@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MusicPlayerFragment">
+
+    <TextView
+        android:id="@+id/fileInfo_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7sp"
+        android:text="@string/file_name_artist"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="?colorOnSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/music_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2sp"
+        android:contentDescription="@string/music_image"
+        android:paddingHorizontal="9sp"
+        android:src="@drawable/ic_song"
+        app:layout_constraintBottom_toTopOf="@+id/fileLength_seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/fileLength_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4sp"
+        android:layout_marginBottom="-130sp"
+        app:cs_circle_progress_color="@color/green"
+        app:cs_circle_stroke_width="12sp"
+        app:cs_circle_style="round"
+        app:cs_end_angle="0"
+        app:cs_max="150"
+        app:cs_progress="75"
+        app:cs_start_angle="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/elapsedTime_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="7sp"
+        android:layout_marginTop="25sp"
+        android:text="@string/elapsed_time"
+        android:textColor="?colorOnSecondary"
+        app:layout_constraintStart_toStartOf="@+id/fileLength_seekBar"
+        app:layout_constraintTop_toTopOf="@+id/fileLength_seekBar" />
+
+    <TextView
+        android:id="@+id/fileLength_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25sp"
+        android:layout_marginEnd="7sp"
+        android:text="@string/file_length"
+        android:textColor="?colorOnSecondary"
+        app:layout_constraintEnd_toEndOf="@+id/fileLength_seekBar"
+        app:layout_constraintTop_toTopOf="@+id/fileLength_seekBar" />
+
+
+    <Button
+        android:id="@+id/fastForward_button"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginStart="10sp"
+        android:background="@drawable/ic_fast_forward"
+        app:layout_constraintBottom_toBottomOf="@+id/nextFile_button"
+        app:layout_constraintStart_toEndOf="@+id/nextFile_button"
+        app:layout_constraintTop_toTopOf="@+id/nextFile_button" />
+
+    <Button
+        android:id="@+id/nextFile_button"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginStart="10sp"
+        android:background="@drawable/ic_next_file"
+        app:layout_constraintBottom_toBottomOf="@+id/play_button"
+        app:layout_constraintStart_toEndOf="@+id/play_button"
+        app:layout_constraintTop_toTopOf="@+id/play_button" />
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/ic_pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/music_imageView" />
+
+    <Button
+        android:id="@+id/previousFile_button"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginEnd="10sp"
+        android:background="@drawable/ic_previous_file"
+        app:layout_constraintBottom_toBottomOf="@+id/play_button"
+        app:layout_constraintEnd_toStartOf="@+id/play_button"
+        app:layout_constraintTop_toTopOf="@+id/play_button" />
+
+    <Button
+        android:id="@+id/fastBack_button"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginEnd="10sp"
+        android:background="@drawable/ic_fast_back"
+        app:layout_constraintBottom_toBottomOf="@+id/previousFile_button"
+        app:layout_constraintEnd_toStartOf="@+id/previousFile_button"
+        app:layout_constraintTop_toTopOf="@+id/previousFile_button" />
+
+
+    <ImageView
+        android:id="@+id/mute_imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="7sp"
+        android:contentDescription="@string/mute_sound"
+        android:src="@drawable/ic_mute"
+        app:layout_constraintBottom_toBottomOf="@+id/volume_seekBar"
+        app:layout_constraintEnd_toStartOf="@+id/volume_seekBar"
+        app:layout_constraintTop_toTopOf="@+id/volume_seekBar" />
+
+    <SeekBar
+        android:id="@+id/volume_seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:progress="50"
+        android:progressBackgroundTint="?colorOnSecondary"
+        android:progressTint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/play_button"
+        app:layout_constraintWidth_percent=".60" />
+
+    <ImageView
+        android:id="@+id/unMute_imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="7sp"
+        android:contentDescription="@string/unmute_sound"
+        android:src="@drawable/ic_volume_up"
+        app:layout_constraintBottom_toBottomOf="@+id/volume_seekBar"
+        app:layout_constraintStart_toEndOf="@+id/volume_seekBar"
+        app:layout_constraintTop_toTopOf="@+id/volume_seekBar" />
+
+    <com.chibde.visualizer.BarVisualizer
+        android:id="@+id/visualizer"
+        android:layout_width="match_parent"
+        android:layout_height="95sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

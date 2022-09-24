@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/allFiles_fragment">
+
+    <fragment
+        android:id="@+id/allFiles_fragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.AllFilesFragment"
+        android:label="PlaylistDetailsFragment"
+        tools:layout="@layout/fragment_all_files" />
+
+    <fragment
+        android:id="@+id/musicPlayer_Fragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.MusicPlayerFragment"
+        android:label="AlbumDetailsFragment"
+        tools:layout="@layout/fragment_music_player" />
+
+</navigation>
