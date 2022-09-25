@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/SDK/Sdk/platforms/android-32/data/res/layout/preference_category.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/drawable/ic_album.xml" value="0.1685" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/drawable/ic_artist.xml" value="0.1685" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.137" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/drawable/ic_disc.xml" value="0.187" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/drawable/ic_fast_fwd.xml" value="0.169" />
@@ -29,11 +31,17 @@
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/activity_permission.xml" value="0.1265625" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/activity_splash.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/album_custom_row.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/artist_custom_row.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/custom_row.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/fragment_all_albums.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/fragment_all_artists.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/fragment_all_files.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/fragment_music_player.xml" value="0.264" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/fragment_permission.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/fragment_setting.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/layout/music_custom_row.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/projects/MyProjects/MusicPlayer/app/src/main/res/xml/profile.xml" value="0.2734375" />
       </map>
     </option>

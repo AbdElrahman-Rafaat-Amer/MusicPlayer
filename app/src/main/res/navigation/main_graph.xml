@@ -11,6 +11,18 @@
         tools:layout="@layout/fragment_all_files" />
 
     <fragment
+        android:id="@+id/allArtists_fragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.AllArtistsFragment"
+        android:label="PlaylistDetailsFragment"
+        tools:layout="@layout/fragment_all_artists" />
+
+    <fragment
+        android:id="@+id/allAlbums_fragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.AllAlbumsFragment"
+        android:label="PlaylistDetailsFragment"
+        tools:layout="@layout/fragment_all_albums" />
+
+    <fragment
         android:id="@+id/musicPlayer_Fragment"
         android:name="com.abdelrahman.rafaat.musicplayer.fragments.MusicPlayerFragment"
         android:label="AlbumDetailsFragment"

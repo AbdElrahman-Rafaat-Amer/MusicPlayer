@@ -14,5 +14,8 @@
     <string name="file_name_artist">FileName | Artist</string>
     <string name="mute_sound">mute sound</string>
     <string name="unmute_sound">unMute sound</string>
+    <string name="artists">Artists</string>
+    <string name="songs">Songs</string>
+    <string name="album">Albums</string>
 
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AllFilesFragment">
+    tools:context=".fragments.AllArtistsFragment">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/noFiles_animation"
@@ -21,7 +21,7 @@
         tools:ignore="ImageContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/musicFiles_recyclerview"
+        android:id="@+id/artists_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10sp"
@@ -29,6 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/music_custom_row" />
+        tools:listitem="@layout/artist_custom_row" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

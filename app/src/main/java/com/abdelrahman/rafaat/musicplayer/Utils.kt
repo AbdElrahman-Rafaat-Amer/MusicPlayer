@@ -11,6 +11,13 @@ fun getAlbumArtUri(paramInt: Long): Uri {
     )
 }
 
+fun getArtistUri(paramInt: Long): Uri {
+    return ContentUris.withAppendedId(
+        Uri.parse("content://media/external/audio/artistart"),
+        paramInt
+    )
+}
+
 fun isRTL(): Boolean {
     val language = Locale.getDefault().displayName
     val directionality = Character.getDirectionality(language[0]).toInt()

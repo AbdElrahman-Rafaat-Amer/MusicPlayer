@@ -14,6 +14,14 @@ class Repository private constructor(
         return emptyList()
     }
 
+    override fun getArtists(): List<Artist> {
+        return musicClient.getAllArtists()
+    }
+
+    override fun getAlbums(): List<Album> {
+        return musicClient.getAllAlbums()
+    }
+
     companion object {
         private var instance: Repository? = null
         fun getMusicClient(musicClient: MusicClient): Repository {

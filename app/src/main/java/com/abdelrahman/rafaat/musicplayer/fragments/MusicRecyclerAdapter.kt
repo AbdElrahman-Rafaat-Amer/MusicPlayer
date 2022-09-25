@@ -22,7 +22,7 @@ class MusicRecyclerAdapter(private var onItemListener: OnItemListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
         val view =
-            LayoutInflater.from(context).inflate(R.layout.custom_row, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.music_custom_row, parent, false)
         return ViewHolder(view)
     }
 
