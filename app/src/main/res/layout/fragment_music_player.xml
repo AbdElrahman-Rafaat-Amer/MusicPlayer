@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MusicPlayerFragment">
+    tools:context=".fragments.song.MusicPlayerFragment">
 
     <TextView
         android:id="@+id/fileInfo_textView"
@@ -29,17 +29,26 @@
         android:contentDescription="@string/music_image"
         android:paddingHorizontal="9sp"
         android:src="@drawable/ic_song"
-        app:layout_constraintBottom_toTopOf="@+id/fileLength_seekBar"
+        app:layout_constraintBottom_toTopOf="@+id/visualizer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.chibde.visualizer.BarVisualizer
+        android:id="@+id/visualizer"
+        android:layout_width="match_parent"
+        android:layout_height="95sp"
+        android:layout_marginBottom="5sp"
+        android:outlineAmbientShadowColor="@color/green"
+        android:outlineSpotShadowColor="@color/green"
+        app:layout_constraintBottom_toTopOf="@+id/fileLength_seekBar" />
 
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/fileLength_seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4sp"
-        android:layout_marginBottom="-130sp"
+        android:layout_marginBottom="-230sp"
         app:cs_circle_progress_color="@color/green"
         app:cs_circle_stroke_width="12sp"
         app:cs_circle_style="round"
@@ -104,7 +113,7 @@
         android:background="@drawable/ic_pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/music_imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/visualizer" />
 
     <Button
         android:id="@+id/previousFile_button"
@@ -161,11 +170,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/volume_seekBar"
         app:layout_constraintStart_toEndOf="@+id/volume_seekBar"
         app:layout_constraintTop_toTopOf="@+id/volume_seekBar" />
-
-    <com.chibde.visualizer.BarVisualizer
-        android:id="@+id/visualizer"
-        android:layout_width="match_parent"
-        android:layout_height="95sp"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

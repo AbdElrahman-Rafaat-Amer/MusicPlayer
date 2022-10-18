@@ -3,7 +3,7 @@ package com.abdelrahman.rafaat.musicplayer.datasource
 import android.content.Context
 import android.provider.MediaStore
 import android.util.Log
-import com.abdelrahman.rafaat.musicplayer.fragments.TAG
+import com.abdelrahman.rafaat.musicplayer.fragments.song.TAG
 import com.abdelrahman.rafaat.musicplayer.model.Album
 import com.abdelrahman.rafaat.musicplayer.model.Artist
 import com.abdelrahman.rafaat.musicplayer.model.MusicFile
@@ -73,7 +73,6 @@ class MusicClient private constructor(var context: Context) {
                 artistCursor.getColumnIndex(MediaStore.Audio.Artists.NUMBER_OF_ALBUMS)
             val indexNumberOfTracks =
                 artistCursor.getColumnIndex(MediaStore.Audio.Artists.NUMBER_OF_TRACKS)
-
             do {
                 val id = artistCursor.getString(indexID)
                 val artist = artistCursor.getString(indexArtist)
@@ -104,7 +103,6 @@ class MusicClient private constructor(var context: Context) {
         val songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
         val songCursor = contentResolver.query(songUri, null, null, null, null)
         if (songCursor != null && songCursor.moveToFirst()) {
-
             val indexID = songCursor.getColumnIndex(MediaStore.Audio.Media._ID)
             val indexArtist = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST)
             val indexTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE)

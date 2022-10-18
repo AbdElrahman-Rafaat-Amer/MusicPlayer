@@ -6,25 +6,25 @@
 
     <fragment
         android:id="@+id/allFiles_fragment"
-        android:name="com.abdelrahman.rafaat.musicplayer.fragments.AllFilesFragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.song.AllFilesFragment"
         android:label="PlaylistDetailsFragment"
         tools:layout="@layout/fragment_all_files" />
 
     <fragment
         android:id="@+id/allArtists_fragment"
-        android:name="com.abdelrahman.rafaat.musicplayer.fragments.AllArtistsFragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.artist.AllArtistsFragment"
         android:label="PlaylistDetailsFragment"
         tools:layout="@layout/fragment_all_artists" />
 
     <fragment
         android:id="@+id/allAlbums_fragment"
-        android:name="com.abdelrahman.rafaat.musicplayer.fragments.AllAlbumsFragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.album.AllAlbumsFragment"
         android:label="PlaylistDetailsFragment"
         tools:layout="@layout/fragment_all_albums" />
 
     <fragment
         android:id="@+id/musicPlayer_Fragment"
-        android:name="com.abdelrahman.rafaat.musicplayer.fragments.MusicPlayerFragment"
+        android:name="com.abdelrahman.rafaat.musicplayer.fragments.song.MusicPlayerFragment"
         android:label="AlbumDetailsFragment"
         tools:layout="@layout/fragment_music_player" />
 

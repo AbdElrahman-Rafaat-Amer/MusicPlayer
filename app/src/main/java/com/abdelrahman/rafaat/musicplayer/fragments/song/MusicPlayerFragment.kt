@@ -1,10 +1,9 @@
-package com.abdelrahman.rafaat.musicplayer.fragments
+package com.abdelrahman.rafaat.musicplayer.fragments.song
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -47,64 +46,14 @@ class MusicPlayerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        glideContext = requireContext()
         allFiles = musicViewModel.musicFiles.value!!
         position = arguments?.getInt("POSITION") ?: 0
-        glideContext = requireContext()
         checkRTL()
         initUI()
         showFileDetails()
         startPlaying()
         setUpVisualizer()
-
-
-
-
-        /*CoroutineScope(Dispatchers.Main).launch {
-            total = musicPlayer.duration
-            Log.i(TAG, "onViewCreated: current------------> $current")
-            Log.i(TAG, "onViewCreated: total------------> $total")
-            while (current < total) {
-                try {
-                    current = musicPlayer.currentPosition
-                    val elapsedTime: String = millisecondsToString(current)
-                    Handler(Looper.getMainLooper()).post {
-                        binding.elapsedTimeTextView.text = elapsedTime
-                        binding.fileLengthSeekBar.progress = current.toFloat()
-                    }
-                    delay(1000)
-                    Log.i(TAG, "onViewCreated: current in------------> $current")
-                    Log.i(TAG, "onViewCreated: total in------------> $total")
-                } catch (exception: IllegalStateException) {
-                    Log.i(TAG, "exception -----------------> ${exception.message}")
-                    Log.i(TAG, "onViewCreated: current exception------------> $current")
-                    Log.i(TAG, "onViewCreated: total exception------------> $total")
-                }
-            }
-        }*/
-
-/*        Thread {
-            total = musicPlayer.duration
-            Log.i(TAG, "onViewCreated: current------------> $current")
-            Log.i(TAG, "onViewCreated: total------------> $total")
-            while (current < total) {
-                try {
-                    current = musicPlayer.currentPosition
-                    val elapsedTime: String = millisecondsToString(current)
-                    Handler(Looper.getMainLooper()).post {
-                        binding.elapsedTimeTextView.text = elapsedTime
-                        binding.fileLengthSeekBar.progress = current.toFloat()
-                    }
-                    Thread.sleep(1000)
-                    Log.i(TAG, "onViewCreated: current in------------> $current")
-                    Log.i(TAG, "onViewCreated: total in------------> $total")
-                } catch (exception: IllegalStateException) {
-                    Log.i(TAG, "exception -----------------> ${exception.message}")
-                    Log.i(TAG, "onViewCreated: current exception------------> $current")
-                    Log.i(TAG, "onViewCreated: total exception------------> $total")
-                }
-            }
-        }.start()*/
     }
 
     private fun checkRTL() {
@@ -206,8 +155,6 @@ class MusicPlayerFragment : Fragment() {
     private fun showFileDetails() {
         currentMusicFile = allFiles[position]
         binding.fileInfoTextView.text = currentMusicFile.title.plus(" | " + currentMusicFile.artist)
-
-        Log.i(TAG, "showFileDetails: glideContext--------------------->$glideContext")
         glideContext.let {
             Glide.with(it)
                 .load(getAlbumArtUri(currentMusicFile.albumID!!.toLong()).toString())
@@ -225,9 +172,9 @@ class MusicPlayerFragment : Fragment() {
         musicPlayer.stop()
         musicPlayer.release()
         currentMusicFile = allFiles[position]
-        val uri = Uri.parse(currentMusicFile.data.toString())
-        musicPlayer = MediaPlayer.create(requireContext(), uri)
-        musicPlayer.start()
+        musicPlayer = MediaPlayer()
+        musicPlayer.setDataSource(currentMusicFile.data!!)
+        musicPlayer.prepare()
         startAnimation()
         musicPlayer.setVolume(0.5f, 0.5f)
         binding.playButton.setBackgroundResource(R.drawable.ic_pause)
@@ -235,12 +182,12 @@ class MusicPlayerFragment : Fragment() {
         current = 0
         musicPlayer.setOnCompletionListener {
             position = (position + 1) % allFiles.size
-            Log.i(TAG, "onViewCreated: --------------------------- end")
             showFileDetails()
             startPlaying()
             setUpVisualizer()
         }
         updateSeekBar()
+        musicPlayer.start()
     }
 
     private fun millisecondsToString(time: Int): String {
@@ -272,9 +219,9 @@ class MusicPlayerFragment : Fragment() {
     }
 
     private fun setUpVisualizer() {
-        binding.visualizer.setDensity(70F)
+        binding.visualizer.setDensity(90F)
         binding.visualizer.setPlayer(musicPlayer.audioSessionId)
-        binding.visualizer.setColor(resources.getColor(R.color.green, null))
+        context?.getColor(R.color.green)?.let { binding.visualizer.setColor(it) }
     }
 
     companion object {
@@ -284,8 +231,6 @@ class MusicPlayerFragment : Fragment() {
     private fun updateSeekBar() {
         CoroutineScope(Dispatchers.Main).launch {
             total = musicPlayer.duration
-            Log.i(TAG, "onViewCreated: current------------> $current")
-            Log.i(TAG, "onViewCreated: total------------> $total")
             while (current < total && musicPlayer.isPlaying) {
                 try {
                     current = musicPlayer.currentPosition
@@ -295,12 +240,8 @@ class MusicPlayerFragment : Fragment() {
                         binding.fileLengthSeekBar.progress = current.toFloat()
                     }
                     delay(1000)
-                    Log.i(TAG, "onViewCreated: current in------------> $current")
-                    Log.i(TAG, "onViewCreated: total in------------> $total")
                 } catch (exception: IllegalStateException) {
                     Log.i(TAG, "exception -----------------> ${exception.message}")
-                    Log.i(TAG, "onViewCreated: current exception------------> $current")
-                    Log.i(TAG, "onViewCreated: total exception------------> $total")
                 }
             }
         }
@@ -308,7 +249,6 @@ class MusicPlayerFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.i(TAG, "onDestroyView: -------------------------->")
         binding.visualizer.release()
     }
 

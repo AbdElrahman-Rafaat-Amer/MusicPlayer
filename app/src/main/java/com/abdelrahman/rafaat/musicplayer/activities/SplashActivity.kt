@@ -2,8 +2,6 @@ package com.abdelrahman.rafaat.musicplayer.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.abdelrahman.rafaat.musicplayer.databinding.ActivitySplashBinding
 import kotlinx.coroutines.CoroutineScope
@@ -22,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3200)
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            startActivity(Intent(this@SplashActivity, PermissionActivity::class.java))
             finish()
         }
 

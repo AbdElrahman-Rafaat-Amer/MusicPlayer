@@ -1,4 +1,4 @@
-package com.abdelrahman.rafaat.musicplayer.fragments
+package com.abdelrahman.rafaat.musicplayer.fragments.artist
 
 import android.os.Bundle
 import android.util.Log
@@ -13,13 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.abdelrahman.rafaat.musicplayer.R
 import com.abdelrahman.rafaat.musicplayer.databinding.FragmentAllArtistsBinding
-import com.abdelrahman.rafaat.musicplayer.model.Album
+import com.abdelrahman.rafaat.musicplayer.fragments.OnItemListener
 import com.abdelrahman.rafaat.musicplayer.model.Artist
 import com.abdelrahman.rafaat.musicplayer.viewmodel.MusicViewModel
 
 
 class AllArtistsFragment : Fragment(), OnItemListener {
 
+    private val TAG = "AllArtistsFragment"
     private lateinit var binding: FragmentAllArtistsBinding
     private val artistViewModel: MusicViewModel by activityViewModels()
     private val adapter = ArtistRecyclerAdapter(this)
@@ -42,7 +43,8 @@ class AllArtistsFragment : Fragment(), OnItemListener {
     }
 
     private fun initRecyclerView() {
-        binding.artistsRecyclerview.layoutManager =  StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+        binding.artistsRecyclerview.layoutManager =
+            StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         binding.artistsRecyclerview.adapter = adapter
         val resId: Int = R.anim.lat
         val animation: LayoutAnimationController =
@@ -57,6 +59,7 @@ class AllArtistsFragment : Fragment(), OnItemListener {
                 binding.noFilesAnimation.visibility = View.VISIBLE
                 binding.artistsRecyclerview.visibility = View.INVISIBLE
             } else {
+                Log.i(TAG, "observeViewModel: $it")
                 adapter.setList(it)
                 binding.artistsRecyclerview.visibility = View.VISIBLE
                 binding.noFilesAnimation.visibility = View.INVISIBLE
@@ -65,7 +68,26 @@ class AllArtistsFragment : Fragment(), OnItemListener {
     }
 
     override fun onItemClickListener(position: Int) {
-
+        /* val bundle = Bundle()
+         bundle.putInt("POSITION", position)
+         Navigation.findNavController(requireView()).navigate(R.id.musicPlayer_Fragment, bundle)*/
+        Log.i(TAG, "onItemClickListener: position-------> $position")
+        val artist = artistViewModel.artists.value?.get(0)
+        Log.i(TAG, "onItemClickListener: artist---------> $artist")
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i(TAG, "onDestroyView: -----------------------")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy: ------------------------")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i(TAG, "onDetach: -------------------------------")
+    }
 }

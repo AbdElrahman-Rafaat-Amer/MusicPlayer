@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.abdelrahman.rafaat.musicplayer.R
 import com.abdelrahman.rafaat.musicplayer.databinding.ActivityMainBinding
-import com.abdelrahman.rafaat.musicplayer.fragments.TAG
+import com.abdelrahman.rafaat.musicplayer.fragments.song.TAG
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -23,19 +22,27 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.songs -> {
                     Log.i(TAG, "onCreate: bottomNavigation.setOnItemSelectedListener go to songs")
-                    Navigation.findNavController(binding.navHostFragment).navigate(R.id.allFiles_fragment)
+                    Navigation.findNavController(binding.navHostFragment)
+                        .navigate(R.id.allFiles_fragment)
                 }
                 R.id.artists -> {
                     Log.i(TAG, "onCreate: bottomNavigation.setOnItemSelectedListener go to artists")
-                    Navigation.findNavController(binding.navHostFragment).navigate(R.id.allArtists_fragment)
+                    Navigation.findNavController(binding.navHostFragment)
+                        .navigate(R.id.allArtists_fragment)
                 }
                 R.id.albums -> {
                     Log.i(TAG, "onCreate: bottomNavigation.setOnItemSelectedListener go to albums")
-                    Navigation.findNavController(binding.navHostFragment).navigate(R.id.allAlbums_fragment)
+                    Navigation.findNavController(binding.navHostFragment)
+                        .navigate(R.id.allAlbums_fragment)
                 }
             }
             true
         }
+
+        binding.bottomNavigationView.setOnItemReselectedListener {
+            Log.i("MusicViewModel", "onCreate: --------------------")
+        }
+
 
     }
 

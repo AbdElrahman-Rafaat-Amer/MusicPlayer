@@ -1,4 +1,4 @@
-package com.abdelrahman.rafaat.musicplayer.fragments
+package com.abdelrahman.rafaat.musicplayer.fragments.song
 
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abdelrahman.rafaat.musicplayer.R
 import com.abdelrahman.rafaat.musicplayer.databinding.FragmentAllFilesBinding
+import com.abdelrahman.rafaat.musicplayer.fragments.OnItemListener
 import com.abdelrahman.rafaat.musicplayer.viewmodel.MusicViewModel
 
 
